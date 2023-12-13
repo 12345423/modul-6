@@ -1,9 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/ReAlfz/Dataset-Narkotika_160_184">
-    <img src="gambar/logo.png" alt="Logo" width="80" height="80">
-  </a>
+    <img src="gambar/logo.png" alt="Logo" width="360" height="180">
+
 
 <h1 align="center">Rock, Paper, Scissors Prediction</h1>
   <p align="center">

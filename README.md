@@ -18,6 +18,9 @@
 ## Dataset
 Dataset yang dipakai adalah dari modul sebelumnya. [Berikut link dataset.]((https://drive.google.com/drive/folders/1-5efasTceqGvxi10wCaU3FzjeEnybOyw?usp=sharing))
 
+<div>
+    <img src="gambar/rps.jpg" alt="dataset" width="75%">
+</div>
 
 ### Data Preprocessing
 Dataset pertama-tama dipecah menggunakan perpustakaan *splitfolders* menjadi 3 set: pelatihan, validasi, dan pengujian dengan proporsi masing-masing 80, 10, dan 10 persen.

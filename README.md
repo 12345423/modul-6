@@ -18,46 +18,21 @@
 ## Dataset
 Dataset yang dipakai adalah dari modul sebelumnya. [Berikut link dataset.]((https://drive.google.com/drive/folders/1-5efasTceqGvxi10wCaU3FzjeEnybOyw?usp=sharing))
 
-<div>
-    <img src="gambar/rps.jpg" alt="dataset" width="75%">
-</div>
 
 ### Data Preprocessing
-The dataset is first splitted using *splitfolders* library into 3 sets: training, validation, and testing with proportion of 80, 10, and 10 percent respectively.
-```python
-splitfolders.ratio("Dataset/Images/rps/", output="Dataset/Images/rps_split",
-    seed=1337, ratio=(.8, .1, .1), group_prefix=None, move=False)
-```
-Then, the images are loaded using ImageDataGenerator() from the *keras.preprocessing.image* library. To prevent overfitting, the images are augmented with the paramaters below:
-- rotation_range=30
-- shear_range=0.2
-- zoom_range=0.025
-- horizontal_flip=True
-- vertical_flip=True
-- width_shift_range=0.05
-- height_shift_range=0.05
-- brightness_range=(1,1.1)
+Dataset pertama-tama dipecah menggunakan perpustakaan *splitfolders* menjadi 3 set: pelatihan, validasi, dan pengujian dengan proporsi masing-masing 80, 10, dan 10 persen.
 
-<div>
-    <img src="utils/dataset_2.png" alt="augmented_dataset" width="75%">
-</div>
 
 ## Deep Learning Model
-The modelling involves training the dataset with a pre-trained MobileNet model. MobileNet is a lightweight convolutional neural network architecture that is trained on the ImageNet dataset consisting of millions of labeled images accross thousands of categories.
+Deep learning bertujuan untuk membuat mesin atau program komputer dapat belajar secara otomatis dan mampu membuat keputusan atau tugas tanpa perlu pemrograman eksplisit untuk setiap langkahnya.
 
-<div>
-    <img src="utils/mobilenetv1_architecture.png" alt="pretrained_architecture" width="75%">
-</div>
 
 ### Model Training
-Model is trained on the dataset with RMSprop optimizer and *categorical_crossentropy* loss for 10 epochs. Based on the training history graph, the model was able to highly recognize each images in the label without losing the validation accuracy.
+Model
 |   Training and Validation accuracy | Training and Validation loss |
 | ------------- | ------------- |
-| ![](utils/model_eval_1.png)  | ![](utils/model_eval_2.png)  |
 
 ### Model Evaluation
-After the model has been trained, the test dataset is used to evaluate the model.
-<div>
-    <img src="utils/model_eval_3.png" alt="eval_3" width="50%">
-</div>
-Based on the classification report, the model excellently predicted the labels for each images on the test dataset, with 100% overall accuracy.
+Setelah model dilatih, dataset pengujian digunakan untuk mengevaluasi model.
+
+Berdasarkan laporan klasifikasi, model ini memprediksi label untuk setiap gambar pada kumpulan data pengujian dengan sangat baik

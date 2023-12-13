@@ -19,7 +19,7 @@
 Dataset yang dipakai adalah dari modul sebelumnya. [Berikut link dataset.]((https://drive.google.com/drive/folders/1-5efasTceqGvxi10wCaU3FzjeEnybOyw?usp=sharing))
 
 <div>
-    <img src="gambar/rps.png" alt="dataset" width="75%">
+    <img src="gambar/rps.jpg" alt="dataset" width="75%">
 </div>
 
 ### Data Preprocessing

@@ -1,1 +1,63 @@
-# modul-6
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/ReAlfz/Dataset-Narkotika_160_184">
+    <img src="utils/umm.png" alt="Logo" width="80" height="80">
+  </a>
+
+<h1 align="center">Rock, Paper, Scissors Prediction</h1>
+  <p align="center">
+    This project focuses on creating a deep learning model to predict
+    images of rock, paper, scissors.
+  </p>
+</div>
+
+### Authors
+- Irham Bagus J 
+
+## Dataset
+Dataset yang dipakai adalah dari modul sebelumnya. [Berikut link dataset.]((https://drive.google.com/drive/folders/1-5efasTceqGvxi10wCaU3FzjeEnybOyw?usp=sharing))
+
+<div>
+    <img src="gambar/rps.png" alt="dataset" width="75%">
+</div>
+
+### Data Preprocessing
+The dataset is first splitted using *splitfolders* library into 3 sets: training, validation, and testing with proportion of 80, 10, and 10 percent respectively.
+```python
+splitfolders.ratio("Dataset/Images/rps/", output="Dataset/Images/rps_split",
+    seed=1337, ratio=(.8, .1, .1), group_prefix=None, move=False)
+```
+Then, the images are loaded using ImageDataGenerator() from the *keras.preprocessing.image* library. To prevent overfitting, the images are augmented with the paramaters below:
+- rotation_range=30
+- shear_range=0.2
+- zoom_range=0.025
+- horizontal_flip=True
+- vertical_flip=True
+- width_shift_range=0.05
+- height_shift_range=0.05
+- brightness_range=(1,1.1)
+
+<div>
+    <img src="utils/dataset_2.png" alt="augmented_dataset" width="75%">
+</div>
+
+## Deep Learning Model
+The modelling involves training the dataset with a pre-trained MobileNet model. MobileNet is a lightweight convolutional neural network architecture that is trained on the ImageNet dataset consisting of millions of labeled images accross thousands of categories.
+
+<div>
+    <img src="utils/mobilenetv1_architecture.png" alt="pretrained_architecture" width="75%">
+</div>
+
+### Model Training
+Model is trained on the dataset with RMSprop optimizer and *categorical_crossentropy* loss for 10 epochs. Based on the training history graph, the model was able to highly recognize each images in the label without losing the validation accuracy.
+|   Training and Validation accuracy | Training and Validation loss |
+| ------------- | ------------- |
+| ![](utils/model_eval_1.png)  | ![](utils/model_eval_2.png)  |
+
+### Model Evaluation
+After the model has been trained, the test dataset is used to evaluate the model.
+<div>
+    <img src="utils/model_eval_3.png" alt="eval_3" width="50%">
+</div>
+Based on the classification report, the model excellently predicted the labels for each images on the test dataset, with 100% overall accuracy.
